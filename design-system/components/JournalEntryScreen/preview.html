@@ -1,0 +1,43 @@
+<!-- @dsCard group="Example screens" height=1440 width=1280 page -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>JournalEntryScreen</title><style>
+.layout{display:grid;grid-template-columns:220px minmax(0,680px) 1fr;gap:var(--space-10);padding-top:var(--space-12)}
+.toc{position:sticky;top:96px;align-self:start}
+article h1{font:600 40px/48px var(--font-display);letter-spacing:-.02em;margin:var(--space-3) 0 var(--space-3)}
+article h2{font:600 22px/30px var(--font-display);letter-spacing:-.01em;margin:var(--space-10) 0 var(--space-3)}
+article p{margin:0 0 var(--space-4)}
+article ul{margin:0 0 var(--space-4);padding-left:var(--space-6)}
+article li{margin-bottom:var(--space-2)}
+pre{font:400 14px/22px var(--font-mono);background:var(--bg-subtle);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:var(--space-4);margin:0 0 var(--space-6);overflow:auto;color:var(--text-primary)}
+.crumb{display:flex;align-items:center;gap:var(--space-1);font-size:14px;line-height:22px;color:var(--text-secondary)}
+.side{align-self:start;position:sticky;top:96px}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-top:var(--space-12)}
+</style></head>
+<body>
+<header class="rj-nav"><div class="rj-container rj-nav-inner"><a class="rj-brand" href="#">RAVN <span>Learning Journal</span></a><ul class="rj-nav-links"><li><a class="rj-nav-link" href="#">Overview</a></li><li><a class="rj-nav-link" href="#" aria-current="page">Journal</a></li><li><a class="rj-nav-link" href="#">Projects</a></li><li><a class="rj-nav-link" href="#">Learnings</a></li></ul><div class="rj-nav-end"><button class="rj-btn rj-btn-ghost rj-btn-icon" aria-label="Switch theme"><svg class="rj-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg></button></div></div></header>
+<div class="rj-container"><div class="layout">
+<nav class="toc" aria-label="On this page"><p class="rj-eyebrow" style="margin-bottom:var(--space-2)">On this page</p><ul class="rj-toc"><li><a href="#">Context</a></li><li><a href="#" aria-current="true">What I built</a></li><li><a href="#">What I learned</a></li><li><a href="#">Mentor feedback</a></li><li><a href="#">Next week</a></li></ul></nav>
+<article>
+<p class="crumb"><a class="rj-link" href="#">Journal</a><svg class="rj-icon rj-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg> Week 06</p>
+<h1>Shipping a GraphQL API</h1>
+<div class="rj-row" style="margin-bottom:var(--space-8)"><span class="rj-meta" style="display:inline-flex;gap:6px;align-items:center"><svg class="rj-icon rj-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /></svg> Sep 22–26, 2026</span><span class="rj-meta" style="display:inline-flex;gap:6px;align-items:center"><svg class="rj-icon rj-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg> 6 min read</span><div class="rj-tags"><span class="rj-tag">GraphQL</span><span class="rj-tag">Apollo Server</span><span class="rj-tag">PostgreSQL</span></div></div>
+<p class="rj-lead" style="margin-bottom:var(--space-6)">This week I moved the Bookshelf backend from REST to GraphQL. The schema took an afternoon; making it fast took the rest of the week.</p>
+<h2>What I built</h2>
+<p>A schema for books, readers and reviews, with resolvers backed by Prisma. The first version worked — and fired 41 SQL queries for a single page of reviews.</p>
+<pre>const bookLoader = new DataLoader(ids =&gt;
+  prisma.book.findMany({ where: { id: { in: ids } } }));</pre>
+<p>Batching with <code>DataLoader</code> brought that down to 6.</p>
+<h2>What I learned</h2>
+<ul><li>Write the query you want the client to send <em>before</em> the schema.</li><li>Resolvers are small functions — test them like functions.</li><li>Measure first: I only found the N+1 because I logged every query.</li></ul>
+<div class="rj-alert rj-alert-warning" role="status" style="margin:var(--space-6) 0"><svg class="rj-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg><div><p class="rj-alert-title">Still open</p><p>Pagination uses offsets; I want to switch to cursors next week.</p></div></div>
+<h2>Mentor feedback</h2>
+<figure class="rj-quote"><blockquote>"You started asking 'how will I test this?' before writing the resolver. That habit is the real deliverable of this module."</blockquote><figcaption><span class="rj-avatar" aria-hidden="true">LT</span><span><strong style="color:var(--text-primary)">Lucía Torres</strong> · Mentor, GraphQL module</span></figcaption></figure>
+<nav class="pager" aria-label="Entries"><a href="#" class="rj-card rj-card-interactive"><p class="rj-eyebrow">Previous · Week 05</p><p class="rj-h4">Node.js &amp; REST APIs</p></a><a href="#" class="rj-card rj-card-interactive" style="text-align:right"><p class="rj-eyebrow">Next · Week 07</p><p class="rj-h4">Testing strategy</p></a></nav>
+</article>
+<aside class="side rj-card"><h2 class="rj-h4">At a glance</h2>
+<div class="rj-progress"><div class="rj-progress-head"><span class="rj-progress-label" id="wk">Week 06 of 09</span></div><ol class="rj-steps" aria-labelledby="wk"><li data-state="done"></li><li data-state="done"></li><li data-state="done"></li><li data-state="done"></li><li data-state="done"></li><li data-state="current"></li><li></li><li></li><li></li></ol></div>
+<p class="rj-meta">Repo: <a class="rj-link" href="#">ravn-bookshelf/api</a></p><p class="rj-meta">Mentor: Lucía Torres</p><p class="rj-meta">Hours logged: <code>18</code></p></aside>
+</div></div><footer style="border-top:1px solid var(--border-default);margin-top:var(--space-16)"><div class="rj-container" style="padding-top:var(--space-6);padding-bottom:var(--space-8);display:flex;justify-content:space-between"><p class="rj-meta">Emmanuel Martinez · Nerdery program, RAVN · 2026</p><a class="rj-link rj-meta" href="#">Back to top</a></div></footer>
+</body>
+</html>

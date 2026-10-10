@@ -1,0 +1,203 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "Icons": {
+      "files": {
+        "arrow-right.svg": {
+          "blob": "ef623fa05965a97a95f0dea287b0b54c",
+          "name": "arrow-right.svg",
+          "size": 249,
+          "type": "image/svg+xml"
+        },
+        "book-open.svg": {
+          "blob": "54f79847e283daf12127484c2923eddd",
+          "name": "book-open.svg",
+          "size": 375,
+          "type": "image/svg+xml"
+        },
+        "calendar.svg": {
+          "blob": "f3c7edb9618934a6d1d217b37a7938bf",
+          "name": "calendar.svg",
+          "size": 327,
+          "type": "image/svg+xml"
+        },
+        "check.svg": {
+          "blob": "00ce34b7786e317adbcff2c9cea60de3",
+          "name": "check.svg",
+          "size": 222,
+          "type": "image/svg+xml"
+        },
+        "chevron-down.svg": {
+          "blob": "2181f0dbb29aab206cb0e28a95ffe847",
+          "name": "chevron-down.svg",
+          "size": 219,
+          "type": "image/svg+xml"
+        },
+        "chevron-right.svg": {
+          "blob": "2518aa72940ed67c46f85df9f85a92cf",
+          "name": "chevron-right.svg",
+          "size": 220,
+          "type": "image/svg+xml"
+        },
+        "circle-check.svg": {
+          "blob": "3a7e7580130c8b11fae367414febce57",
+          "name": "circle-check.svg",
+          "size": 268,
+          "type": "image/svg+xml"
+        },
+        "circle-x.svg": {
+          "blob": "a1d2bfba27576b2d40154baf58d3cfe9",
+          "name": "circle-x.svg",
+          "size": 288,
+          "type": "image/svg+xml"
+        },
+        "clock.svg": {
+          "blob": "b35ba4a00e4437a52b98da86b5135c20",
+          "name": "clock.svg",
+          "size": 261,
+          "type": "image/svg+xml"
+        },
+        "code-xml.svg": {
+          "blob": "ef31f338094d61aa976c0e5376c9619b",
+          "name": "code-xml.svg",
+          "size": 287,
+          "type": "image/svg+xml"
+        },
+        "external-link.svg": {
+          "blob": "930d865977374e3ba53d26cb4a081c60",
+          "name": "external-link.svg",
+          "size": 325,
+          "type": "image/svg+xml"
+        },
+        "folder-git-2.svg": {
+          "blob": "642f634c90a7f1197296b95aaa2d57e5",
+          "name": "folder-git-2.svg",
+          "size": 436,
+          "type": "image/svg+xml"
+        },
+        "git-branch.svg": {
+          "blob": "2390fd796fce9a8ca4bd6d7231afeff3",
+          "name": "git-branch.svg",
+          "size": 310,
+          "type": "image/svg+xml"
+        },
+        "info.svg": {
+          "blob": "338518624252efcdf65c1b7075277d05",
+          "name": "info.svg",
+          "size": 289,
+          "type": "image/svg+xml"
+        },
+        "lightbulb.svg": {
+          "blob": "09cd2aab239190df5f86980a16abab29",
+          "name": "lightbulb.svg",
+          "size": 364,
+          "type": "image/svg+xml"
+        },
+        "menu.svg": {
+          "blob": "c4e11582bc6af95504e29174e8faf31a",
+          "name": "menu.svg",
+          "size": 272,
+          "type": "image/svg+xml"
+        },
+        "message-square.svg": {
+          "blob": "3eb010a875a4195f2b6191ea9ea3e8b0",
+          "name": "message-square.svg",
+          "size": 322,
+          "type": "image/svg+xml"
+        },
+        "moon.svg": {
+          "blob": "da20bc332ef68130c6dbbc533f496f43",
+          "name": "moon.svg",
+          "size": 317,
+          "type": "image/svg+xml"
+        },
+        "notebook-pen.svg": {
+          "blob": "aa51b3e16da5ee7042a794fa800a6fbe",
+          "name": "notebook-pen.svg",
+          "size": 527,
+          "type": "image/svg+xml"
+        },
+        "search.svg": {
+          "blob": "2688570006d116cd1d9a79535f096a5d",
+          "name": "search.svg",
+          "size": 265,
+          "type": "image/svg+xml"
+        },
+        "sun.svg": {
+          "blob": "008fe07918bb5bb93bfdc8bc07380cb5",
+          "name": "sun.svg",
+          "size": 510,
+          "type": "image/svg+xml"
+        },
+        "triangle-alert.svg": {
+          "blob": "5744153af70898af3cfa8444cdfbf23d",
+          "name": "triangle-alert.svg",
+          "size": 338,
+          "type": "image/svg+xml"
+        },
+        "users.svg": {
+          "blob": "24073023e5a909a8e691046be8a3b9a4",
+          "name": "users.svg",
+          "size": 383,
+          "type": "image/svg+xml"
+        },
+        "x.svg": {
+          "blob": "af5d6d307b490bbd7831c8d58c55ef10",
+          "name": "x.svg",
+          "size": 248,
+          "type": "image/svg+xml"
+        }
+      },
+      "name": "Icons",
+      "order": [
+        "arrow-right.svg",
+        "book-open.svg",
+        "calendar.svg",
+        "check.svg",
+        "chevron-down.svg",
+        "chevron-right.svg",
+        "circle-check.svg",
+        "circle-x.svg",
+        "clock.svg",
+        "code-xml.svg",
+        "external-link.svg",
+        "folder-git-2.svg",
+        "git-branch.svg",
+        "info.svg",
+        "lightbulb.svg",
+        "menu.svg",
+        "message-square.svg",
+        "moon.svg",
+        "notebook-pen.svg",
+        "search.svg",
+        "sun.svg",
+        "triangle-alert.svg",
+        "users.svg",
+        "x.svg"
+      ],
+      "tile": "xs"
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-06T15:48:49Z",
+    "v": 1
+  },
+  "docs": {
+    "sections": []
+  },
+  "groups": [
+    "Icons"
+  ],
+  "lastChange": {
+    "at": "2026-10-06T15:48:49Z",
+    "by": "Emmanuel",
+    "note": "First version: tokens, 16 components, 3 example screens, cover.",
+    "via": "Claude (Cowork)"
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "RavnJournal",
+  "sections": {},
+  "title": "RAVN Learning Journal"
+}

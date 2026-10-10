@@ -1,0 +1,16 @@
+<!-- @dsCard group="Forms" height=504 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>TextField</title><style>.g{display:grid;gap:24px 32px;padding:24px;align-items:start}.g{grid-template-columns:repeat(3,1fr)}</style></head>
+<body>
+<div class="g">
+<div><p class="rj-state">default</p><div class="rj-field"><label class="rj-label" for="a">Entry title</label><input class="rj-input" id="a" placeholder="e.g. Week 6 — GraphQL"><p class="rj-help">Shown on the timeline.</p></div></div>
+<div><p class="rj-state">hover</p><div class="rj-field"><label class="rj-label" for="b">Entry title</label><input class="rj-input is-hover" id="b" value="Week 6 — GraphQL"></div></div>
+<div><p class="rj-state">focus</p><div class="rj-field"><label class="rj-label" for="c">Entry title</label><input class="rj-input is-focus" id="c" value="Week 6 — GraphQL"></div></div>
+<div><p class="rj-state">disabled</p><div class="rj-field"><label class="rj-label" for="d">Program</label><input class="rj-input" id="d" value="Nerdery 2026" disabled></div></div>
+<div><p class="rj-state">error</p><div class="rj-field"><label class="rj-label" for="e">Repository URL</label><input class="rj-input" id="e" value="github.com/me" aria-invalid="true" aria-describedby="e-err"><p class="rj-error-msg" id="e-err"><svg class="rj-icon rj-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /></svg> Enter a full URL starting with https://</p></div></div>
+<div><p class="rj-state">with icon</p><div class="rj-field"><label class="rj-label" for="f">Search entries</label><div class="rj-input-wrap"><svg class="rj-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></svg><input class="rj-input" id="f" placeholder="Search by topic or week"></div></div></div>
+<div style="grid-column:span 3"><div><p class="rj-state">textarea</p><div class="rj-field"><label class="rj-label" for="g">Reflection</label><textarea class="rj-textarea" id="g">What clicked this week was thinking of resolvers as tiny, testable functions.</textarea></div></div></div>
+</div>
+</body>
+</html>

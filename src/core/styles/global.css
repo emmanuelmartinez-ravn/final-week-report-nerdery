@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@500;600&display=swap');
+@import 'tailwindcss';
+@import '../../../design-system/tokens.css' layer(base);
+@import '../../../design-system/tailwind-theme.css';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *, .dark, .dark *));
+
+/* Layout tokens tighten below screen-md (design-system README: 16px gutter and margin on mobile). */
+@media (width < 768px) {
+  :root {
+    --page-margin: 16px;
+    --grid-gutter: 16px;
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border-default);
+  }
+
+  body {
+    @apply bg-canvas font-body text-body text-ink antialiased;
+  }
+
+  code {
+    @apply rounded-sm bg-subtle px-1.5 py-px font-mono text-[0.875em];
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
