@@ -285,7 +285,7 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     ],
     blockers: [],
     next: [],
-    pullRequests: [],
+    pullRequests: [{ repo: 'emmanuelmartinez-ravn/code-challenge', numbers: [25] }],
     links: [
       {
         label: 'Task manager',
@@ -298,12 +298,17 @@ export const REPORT_DAYS: readonly ReportDay[] = [
         description: 'Repository of my Frontend month project.',
       },
       {
+        label: 'Task manager weekly summary',
+        href: 'https://github.com/emmanuelmartinez-ravn/code-challenge/blob/prod/WEEKLY_SUMMARY.md',
+        description: 'Referenced in PR #25: a description of the Frontend work done this week.',
+      },
+      {
         label: 'T-shirt store project',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project',
         description: 'Repository of my Backend month project, presented in the meeting with Kevin Escoto.',
       },
       {
-        label: 'Weekly summary',
+        label: 'T-shirt store weekly summary',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project/blob/main/WEEKLY-SUMMARY.md',
         description: 'A complete description of the pull requests behind the Backend image feature.',
       },
