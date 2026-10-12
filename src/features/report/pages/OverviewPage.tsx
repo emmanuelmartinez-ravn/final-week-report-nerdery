@@ -1,12 +1,13 @@
 import { Link } from 'react-router'
 import { ArrowRightIcon } from '../../../shared/icons'
-import { Container, Eyebrow, Lead, ProgressSteps, Timeline, TimelineItem, buttonClasses, textLinkClasses } from '../../../shared/ui'
+import { Container, Eyebrow, Lead, Timeline, TimelineItem, buttonClasses, textLinkClasses } from '../../../shared/ui'
 import { cx } from '../../../shared/utils'
+import { EvidenceSection } from '../components/EvidenceSection.tsx'
 import { REPORT_DAYS, hasNotes } from '../data/days.ts'
+import { evidenceByModule } from '../data/evidence.ts'
 import { dayState } from '../data/status.ts'
 
 export function OverviewPage() {
-  const loggedCount = REPORT_DAYS.filter(hasNotes).length
   const [firstDay] = REPORT_DAYS
 
   return (
@@ -24,14 +25,6 @@ export function OverviewPage() {
               Start with {firstDay.weekday}
               <ArrowRightIcon />
             </Link>
-          </div>
-          <div className="self-end lg:col-span-4 lg:col-start-9">
-            <ProgressSteps
-              label="Days written up"
-              total={REPORT_DAYS.length}
-              completed={loggedCount}
-              valueText={`${loggedCount} / ${REPORT_DAYS.length} days`}
-            />
           </div>
         </section>
 
@@ -56,6 +49,8 @@ export function OverviewPage() {
             ))}
           </Timeline>
         </section>
+
+        <EvidenceSection modules={evidenceByModule()} />
       </Container>
     </main>
   )

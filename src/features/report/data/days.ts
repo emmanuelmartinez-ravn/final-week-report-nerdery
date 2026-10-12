@@ -1,7 +1,14 @@
+/** The six modules of the program. Each link and pull request is evidence for one of them. */
+export const REPORT_MODULES = ['Frontend', 'Backend', 'AI', 'Design', 'Project management', 'QA'] as const
+
+export type ReportModule = (typeof REPORT_MODULES)[number]
+
 /** Pull requests from one GitHub repository. */
 export type PullRequestGroup = {
   /** `owner/name` on GitHub. */
   repo: string
+  /** The module these pull requests are evidence for. */
+  module: ReportModule
   numbers: readonly number[]
   /** The repository is private: only its collaborators can open the links. */
   collaboratorsOnly?: boolean
@@ -10,6 +17,8 @@ export type PullRequestGroup = {
 /** Any other link worth opening: a deployed project, a document. */
 export type ReportLink = {
   label: string
+  /** The module this link is evidence for. */
+  module: ReportModule
   href: string
   /** One line on what the link is. */
   description?: string
@@ -82,6 +91,7 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     pullRequests: [
       {
         repo: 'ravn-qa/qa-nerdery-round-robbin-week-trainees',
+        module: 'QA',
         numbers: [43, 44, 45, 73, 74, 75, 84, 96],
         collaboratorsOnly: true,
       },
@@ -125,6 +135,7 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     pullRequests: [
       {
         repo: 'ravn-qa/qa-nerdery-round-robbin-week-trainees',
+        module: 'QA',
         numbers: [87, 89, 179, 180, 189, 219, 233, 234],
         collaboratorsOnly: true,
       },
@@ -132,11 +143,13 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     links: [
       {
         label: 'Design week journal',
+        module: 'Design',
         href: 'https://design-week-journal.vercel.app/',
         description: 'The deployed Design week project.',
       },
       {
         label: 'Fixes applied',
+        module: 'Design',
         href: 'https://github.com/emmanuelmartinez-ravn/design-week-journal/blob/main/fixes-applied.md',
         description: 'Documentation of every fix made from the Design week feedback.',
       },
@@ -190,16 +203,19 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     links: [
       {
         label: 'Design week journal',
+        module: 'Design',
         href: 'https://design-week-journal.vercel.app/',
         description: 'The deployed Design week project.',
       },
       {
         label: 'Fixes applied',
+        module: 'Design',
         href: 'https://github.com/emmanuelmartinez-ravn/design-week-journal/blob/main/fixes-applied.md',
         description: 'Documentation of every fix made from the Design week feedback.',
       },
       {
         label: 'T-shirt store project',
+        module: 'Backend',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project',
         description: 'Repository of my Backend month project, where the product image and avatar feature is being built.',
       },
@@ -237,17 +253,31 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     ],
     blockers: [],
     next: ['Present my demo and the new endpoints to Kevin Escoto on Friday morning.'],
-    pullRequests: [{ repo: 'emmanuelmartinez-ravn/t-shirt-store-project', numbers: [66] }],
+    pullRequests: [{ repo: 'emmanuelmartinez-ravn/t-shirt-store-project', module: 'Backend', numbers: [66] }],
     links: [
       {
         label: 'T-shirt store project',
+        module: 'Backend',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project',
         description: 'Repository of my Backend month project.',
       },
       {
         label: 'Weekly summary',
+        module: 'Backend',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project/blob/main/WEEKLY-SUMMARY.md',
         description: 'Added in PR #66: a complete description of the pull requests behind the image feature.',
+      },
+      {
+        label: 'T-shirt store Claude Code configuration',
+        module: 'AI',
+        href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project/tree/main/.claude',
+        description: 'The hooks that keep Claude away from the database and the .env file, and the skills for endpoints, services, repositories and AWS.',
+      },
+      {
+        label: 'T-shirt store CLAUDE.md',
+        module: 'AI',
+        href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project/blob/main/CLAUDE.md',
+        description: 'The project instructions Claude Code follows in my Backend month project.',
       },
     ],
     thanks: 'Special thanks to Kevin Escoto for agreeing to a meeting where I presented my demo and the new endpoints.',
@@ -285,30 +315,47 @@ export const REPORT_DAYS: readonly ReportDay[] = [
     ],
     blockers: [],
     next: [],
-    pullRequests: [{ repo: 'emmanuelmartinez-ravn/code-challenge', numbers: [25] }],
+    pullRequests: [{ repo: 'emmanuelmartinez-ravn/code-challenge', module: 'Frontend', numbers: [25] }],
     links: [
       {
         label: 'Task manager',
+        module: 'Frontend',
         href: 'https://code-challenge-git-prod-emmanuel-martinez-ravn.vercel.app/',
         description: 'The deployed Frontend month project.',
       },
       {
         label: 'Task manager repository',
+        module: 'Frontend',
         href: 'https://github.com/emmanuelmartinez-ravn/code-challenge',
         description: 'Repository of my Frontend month project.',
       },
       {
         label: 'Task manager weekly summary',
+        module: 'Frontend',
         href: 'https://github.com/emmanuelmartinez-ravn/code-challenge/blob/prod/WEEKLY_SUMMARY.md',
         description: 'Referenced in PR #25: a description of the Frontend work done this week.',
       },
       {
+        label: 'Task manager Claude Code configuration',
+        module: 'AI',
+        href: 'https://github.com/emmanuelmartinez-ravn/code-challenge/tree/prod/.claude',
+        description: 'The component skills that follow my design tokens, the reviewer agent and the developer agent.',
+      },
+      {
+        label: 'Task manager CLAUDE.md',
+        module: 'AI',
+        href: 'https://github.com/emmanuelmartinez-ravn/code-challenge/blob/prod/CLAUDE.md',
+        description: 'The project instructions Claude Code follows in my Frontend month project.',
+      },
+      {
         label: 'T-shirt store project',
+        module: 'Backend',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project',
         description: 'Repository of my Backend month project, presented in the meeting with Kevin Escoto.',
       },
       {
         label: 'T-shirt store weekly summary',
+        module: 'Backend',
         href: 'https://github.com/emmanuelmartinez-ravn/t-shirt-store-project/blob/main/WEEKLY-SUMMARY.md',
         description: 'A complete description of the pull requests behind the Backend image feature.',
       },
